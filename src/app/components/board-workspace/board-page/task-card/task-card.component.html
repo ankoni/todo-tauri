@@ -1,0 +1,24 @@
+<nb-card>
+    <nb-card-body>
+        <div class="jc-space-between">
+            <ng-container *ngIf="editMode">
+                <form [formGroup]="form">
+                    <input nbInput type="text" placeholder="Name"
+                           fieldSize="small"
+                           [formControlName]="'name'"
+                           (focusout)="onSave()"
+                           (keydown.enter)="onSave()"
+                    >
+                </form>
+            </ng-container>
+            <div *ngIf="!editMode" (dblclick)="editCard()">
+                {{taskData.name}}
+            </div>
+            <button *ngIf="editMode" (click)="onSave()">Save</button>
+            <button *ngIf="taskData.id"
+                    nbButton size="small"
+                    status="danger"
+                    (click)="deleteTask()">Delete</button>
+        </div>
+    </nb-card-body>
+</nb-card>
