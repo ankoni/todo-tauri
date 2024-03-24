@@ -3,7 +3,7 @@ import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {map, switchMap} from "rxjs";
 import {Store} from "@ngrx/store";
 import {TaskList} from "../../../models/board-workspace/task-list";
-import {TaskApiService} from "../../../services/board-workspace/task/api/task-api.service";
+import {TaskApiService} from "../../../modules/board-workspace/board-page/services/api/task-api.service";
 import {
     CreateTaskSuccess,
     deleteTaskFromList,

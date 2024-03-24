@@ -9,9 +9,9 @@ import {
 import {map, mergeMap, of, switchMap, take, tap, withLatestFrom} from "rxjs";
 import { Store } from "@ngrx/store";
 import { TaskList } from "../../../models/board-workspace/task-list";
-import { TaskApiService } from "../../../services/board-workspace/task/api/task-api.service";
+import { TaskApiService } from "../../../modules/board-workspace/board-page/services/api/task-api.service";
 import {CreateTaskSuccess, deleteTaskFromList, DeleteTaskSuccess, saveTask} from "../task/task.actions";
-import {TaskListService} from "../../../services/board-workspace/task/api/task-list.service";
+import {TaskListService} from "../../../modules/board-workspace/board-page/services/api/task-list.service";
 
 @Injectable()
 export class TaskListEffects {

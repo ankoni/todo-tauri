@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Board } from "../../models/board-workspace/board";
 import { Store } from "@ngrx/store";
-import { BoardApiService } from "../../services/board-workspace/board/board-api.service";
+import { BoardApiService } from "../../modules/board-workspace/board-list/services/board-api.service";
 import {
     addNewBoard,
     AddNewBoardSuccess,
