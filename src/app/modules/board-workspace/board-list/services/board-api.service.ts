@@ -5,6 +5,7 @@ import { Apollo } from "apollo-angular";
 import { GET_ALL_BOARDS, IGET_ALL_BOARDS } from "../../../../gql/board/get-all-boards";
 import { CREATE_BOARD, ICREATE_BOARD } from "../../../../gql/board/create-board";
 import {IREMOVE_BOARD, REMOVE_BOARD} from "../../../../gql/board/remove-board";
+import { query } from "@angular/animations";
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,7 @@ export class BoardApiService {
               name
             }
           },
-          refetchQueries: ['getAllBoards'],
+          refetchQueries: [{ query: GET_ALL_BOARDS} ],
         })
         .pipe(
             map(({ data }) => data?.createBoard)
@@ -52,7 +53,7 @@ export class BoardApiService {
               variables: {
                   id
               },
-              refetchQueries: ['getAllBoards'],
+              refetchQueries: [{ query: GET_ALL_BOARDS} ],
           })
           .pipe(
               map(({ data }) => data?.id)

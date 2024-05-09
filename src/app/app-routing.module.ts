@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: 'boards',
-    loadChildren: () => import('./components/board-workspace/board-workspace.module').then(m => m.BoardWorkspaceModule)
+    loadChildren: () => import('./modules/board-workspace/board-workspace.module').then(m => m.BoardWorkspaceModule)
   },
   {
     path: '',

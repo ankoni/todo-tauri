@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { Board } from "../../../../models/board-workspace/board";
 import { Store } from "@ngrx/store";
 import { getBoardList } from "../../../../store/board-list/board-list.selectors";
-import {AddNewBoard, LoadBoardList, RemoveBoard} from "../../../../store/board-list/board-list.actions";
+import { AddNewBoard, LoadBoardList, RemoveBoard } from "../../../../store/board-list/board-list.actions";
 
 @Injectable()
 export class BoardListService {
