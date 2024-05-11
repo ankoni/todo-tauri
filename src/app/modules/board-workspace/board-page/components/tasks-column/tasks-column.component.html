@@ -1,18 +1,8 @@
 <nb-card *ngIf="(listData$ | async) as listData" [formGroup]="taskListForm">
     <nb-card-header class="jc-space-between">
-        <ng-container *ngIf="editMode">
-            <form [formGroup]="taskListForm">
-                <input nbInput type="text" placeholder="Name"
-                       fieldSize="small"
-                       [formControlName]="'name'"
-                       (focusout)="onSave()"
-                       (keydown.enter)="onSave()"
-                >
-            </form>
-        </ng-container>
-        <div *ngIf="!editMode" (dblclick)="editCard()">
-            {{listData.name}}
-        </div>
+        <ng-container
+                [ngTemplateOutlet]="editMode ? editModeTmpl : columnName"
+                [ngTemplateOutletContext]="{ listData }" />
         <div class="actions">
             <button nbButton status="danger" (click)="deleteList()">Delete list</button>
             <button nbButton status="primary" (click)="addNewTask()">Add task</button>
@@ -25,3 +15,19 @@
         ></app-task-card>
     </nb-card-body>
 </nb-card>
+
+<ng-template #editModeTmpl>
+    <form [formGroup]="taskListForm">
+        <input nbInput type="text" placeholder="Name"
+               fieldSize="small"
+               [formControlName]="'name'"
+               (focusout)="onSave()"
+               (keydown.enter)="onSave()"
+        >
+    </form>
+</ng-template>
+<ng-template #columnName let-listData="listData">
+    <div (dblclick)="editCard()">
+        {{listData.name}}
+    </div>
+</ng-template>

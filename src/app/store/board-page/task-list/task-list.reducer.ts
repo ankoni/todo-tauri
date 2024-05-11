@@ -8,7 +8,7 @@ import {
 } from "../task/task.actions";
 import {
     createTaskListSuccess,
-    deleteTaskListSuccess,
+    deleteTaskListSuccess, editTaskListSuccess,
     getOneTaskList,
     getOneTaskListSuccess,
     loadTaskListsSuccess
@@ -33,6 +33,9 @@ export const taskListReducer = createReducer(
     }),
     on(createTaskListSuccess, (state, action) => {
         return action.taskList ? taskListAdapter.addOne(action.taskList, state) : state;
+    }),
+    on(editTaskListSuccess, (state, { listId, data}) => {
+       return taskListAdapter.updateOne({ id: listId, changes: {...data }}, state)
     }),
     on(deleteTaskListSuccess, (state, { listId }) => {
         return listId ? taskListAdapter.removeOne(listId, state) : state

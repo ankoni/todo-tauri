@@ -53,7 +53,8 @@ export class TasksColumnComponent implements OnInit, OnDestroy {
     }
 
     onSave(): void {
-        if (this.taskListForm.valid) {
+        console.log(this.taskListForm.dirty)
+        if (this.taskListForm.valid && this.taskListForm.dirty) {
             const formData: Partial<TaskList> = this.taskListForm.getRawValue() as Partial<TaskList>
             this.taskService.editTaskList(this.taskListId, { ...formData })
             this.editMode = false

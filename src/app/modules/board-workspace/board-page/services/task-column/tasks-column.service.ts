@@ -6,6 +6,7 @@ import {GET_ONE_TASK_LIST, IGET_ONE_TASK_LIST} from "../../gql/task-list/get-one
 import {GET_ALL_TASK_LIST, IGET_ALL_TASK_LIST} from "../../gql/task-list/get-all-task-list";
 import {CREATE_TASK_LIST, ICREATE_TASK_LIST} from "../../gql/task-list/create-task-list";
 import {DELETE_TASK_LIST, IDELETE_TASK_LIST} from "../../gql/task-list/delete-task-list";
+import { EDIT_TASK_LIST, IEDIT_TASK_LIST } from "../../gql/task-list/edit-task-list";
 
 @Injectable({
     providedIn: 'root'
@@ -20,8 +21,7 @@ export class TasksColumnService {
     /** Запрос на получение списков с задачами */
     loadAllTaskListData(boardId: string): Observable<TaskList[]> {
         return this.apollo
-            .watchQuery<IGET_ALL_TASK_LIST>({query: GET_ALL_TASK_LIST, variables: {boardId}})
-            .valueChanges
+            .query<IGET_ALL_TASK_LIST>({query: GET_ALL_TASK_LIST, variables: {boardId}})
             .pipe(
                 map(({data}) => data.getAllTaskList),
                 catchError(() => {
@@ -59,6 +59,22 @@ export class TasksColumnService {
             })
             .pipe(
                 map(({data}) => data?.createTaskList)
+            )
+    }
+
+    editTaskList(listId: string, data: Partial<TaskList>): Observable<TaskList | undefined> {
+        return this.apollo
+            .mutate<IEDIT_TASK_LIST>({
+                mutation: EDIT_TASK_LIST,
+                variables: {
+                    updateTaskList: {
+                        id: listId,
+                        name: data.name
+                    }
+                }
+            })
+            .pipe(
+                map(({ data }) => data?.updateTaskList)
             )
     }
 

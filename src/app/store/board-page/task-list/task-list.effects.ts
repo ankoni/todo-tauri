@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import {
     createTaskList, CreateTaskListSuccess, deleteTaskList, DeleteTaskListSuccess,
-    dummyAction, editTaskListData, getOneTaskList, GetOneTaskListSuccess,
+    dummyAction, editTaskListData, EditTaskListSuccess, getOneTaskList, GetOneTaskListSuccess,
     loadTaskLists,
     LoadTaskListsSuccess
 } from "./task-list.actions";
@@ -60,7 +60,15 @@ export class TaskListEffects {
 
     /** Редактирование данных списка */
     editList$ = createEffect(() => this.actions$.pipe(
-        ofType(editTaskListData)
+        ofType(editTaskListData),
+        switchMap(({ listId, data }) =>
+            this.taskListService.editTaskList(listId, data)
+                .pipe(
+                    map((taskList: TaskList | undefined) => {
+                        return taskList ? new EditTaskListSuccess(listId, taskList) : dummyAction()
+                    })
+                )
+        ),
     ))
 
     /** Удаление списка */
