@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { NbDialogRef } from "@nebular/theme";
-import { CreateBoardDialogData } from "../../../../models/board-workspace/board";
+import { CreateBoardDialogData } from "../../../../../../models/board-workspace/board";
 
 @Component({
     selector: 'app-create-board-dialog',
     templateUrl: './create-board-dialog.component.html',
-    styleUrls: ['./create-board-dialog.component.scss', '../dialog.scss']
+    styleUrls: ['./create-board-dialog.component.scss', '../../../../../../common/components/dialogs/dialog.scss']
 })
 export class CreateBoardDialogComponent {
     form: FormGroup = new FormGroup({

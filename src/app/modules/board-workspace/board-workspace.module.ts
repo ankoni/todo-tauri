@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
-import { BoardListComponent } from './boards-list/components/board-list.component';
+import { BoardListComponent } from './board-list-page/components/board-list.component';
 import { StoreModule } from "@ngrx/store";
 import { boardListReducer } from "../../store/board-list/board-list.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { BoardListEffects } from "../../store/board-list/board-list.effects";
-import { BoardListService } from "./boards-list/services/board-list.service";
-import { BoardApiService } from "./boards-list/services/board-api.service";
+import { BoardListService } from "./board-list-page/services/board-list.service";
+import { BoardApiService } from "./board-list-page/services/board-api.service";
 import {
     NbButtonModule,
     NbCardModule, NbContextMenuModule,
@@ -16,11 +16,11 @@ import {
     NbInputModule,
     NbLayoutModule, NbMenuService
 } from "@nebular/theme";
-import { CreateBoardDialogComponent } from './dialogs/create-board-dialog/create-board-dialog.component';
+import { CreateBoardDialogComponent } from './board-list-page/components/dialogs/create-board-dialog/create-board-dialog.component';
 import { ReactiveFormsModule } from "@angular/forms";
-import { BoardCardComponent } from './boards-list/components/board-card/board-card.component';
+import { BoardCardComponent } from './board-list-page/components/board-card/board-card.component';
 import { StopEventPropagationDirective } from "../../common/directives/stop-event-propagation.directive";
-import { CreateTaskListDialogComponent } from './dialogs/create-task-list-dialog/create-task-list-dialog.component';
+import { CreateTaskListDialogComponent } from './board-page/components/dialogs/create-task-list-dialog/create-task-list-dialog.component';
 
 const routes: Routes = [
     {
@@ -29,7 +29,7 @@ const routes: Routes = [
     },
     {
         path: ':id',
-        loadChildren: () => import('./board-page/components/board-page.module').then(m => m.BoardPageModule)
+        loadChildren: () => import('./board-page/board-page.module').then(m => m.BoardPageModule)
     }
 ]
 

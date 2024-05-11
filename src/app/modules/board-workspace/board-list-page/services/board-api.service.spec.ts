@@ -3,9 +3,9 @@ import { fakeAsync, flush, TestBed } from '@angular/core/testing';
 import { BoardApiService } from './board-api.service';
 import { ApolloTestingController, ApolloTestingModule } from "apollo-angular/testing";
 import { take } from "rxjs";
-import { GET_ALL_BOARDS } from "../../../../gql/board/get-all-boards";
-import { CREATE_BOARD } from "../../../../gql/board/create-board";
-import { REMOVE_BOARD } from "../../../../gql/board/remove-board";
+import { GET_ALL_BOARDS } from "../gql/board/get-all-boards";
+import { CREATE_BOARD } from "../gql/board/create-board";
+import { REMOVE_BOARD } from "../gql/board/remove-board";
 import { Board } from "../../../../models/board-workspace/board";
 
 describe('BoardApiService', () => {

@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TaskListService } from './task-list.service';
+import { TasksColumnService } from './tasks-column.service';
 import {ApolloTestingModule} from "apollo-angular/testing";
 
-describe('TaskListService', () => {
-  let service: TaskListService;
+describe('TasksColumnService', () => {
+  let service: TasksColumnService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ ApolloTestingModule ],
-      providers: [ TaskListService ]
+      providers: [ TasksColumnService ]
     });
-    service = TestBed.inject(TaskListService);
+    service = TestBed.inject(TasksColumnService);
   });
 
   it('should be created', () => {

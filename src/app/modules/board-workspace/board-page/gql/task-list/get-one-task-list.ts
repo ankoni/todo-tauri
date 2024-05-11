@@ -1,4 +1,4 @@
-import {TaskList} from "../../models/board-workspace/task-list";
+import {TaskList} from "../../../../../models/board-workspace/task-list";
 import {gql} from "apollo-angular";
 
 export interface IGET_ONE_TASK_LIST {

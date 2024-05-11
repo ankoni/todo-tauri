@@ -6,12 +6,12 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Task} from 'src/app/models/board-workspace/task';
 
 @Component({
-    selector: 'app-task-list',
-    templateUrl: './task-list.component.html',
-    styleUrls: ['./task-list.component.scss'],
+    selector: 'app-tasks-column',
+    templateUrl: './tasks-column.component.html',
+    styleUrls: ['./tasks-column.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TaskListComponent implements OnInit, OnDestroy {
+export class TasksColumnComponent implements OnInit, OnDestroy {
     private destroyed$: Subject<void> = new Subject<void>();
 
     @Input() taskListId!: string;

@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BoardPageComponent } from "./board-page.component";
-import { TaskListComponent } from "./task-list/task-list.component";
-import { TaskCardComponent } from "./task-card/task-card.component";
+import { BoardPageComponent } from "./components/board-page.component";
+import { TasksColumnComponent } from "./components/tasks-column/tasks-column.component";
+import { TaskCardComponent } from "./components/task-card/task-card.component";
 import { RouterModule, Routes } from "@angular/router";
 import { NbButtonModule, NbCardModule, NbInputModule, NbLayoutModule } from "@nebular/theme";
 import { StoreModule } from "@ngrx/store";
-import { taskListReducer } from "../../../../store/board-page/task-list/task-list.reducer";
+import { taskListReducer } from "../../../store/board-page/task-list/task-list.reducer";
 import { ReactiveFormsModule } from "@angular/forms";
 import { EffectsModule } from "@ngrx/effects";
-import { TaskListEffects } from "../../../../store/board-page/task-list/task-list.effects";
-import { TaskService } from "../services/tasks/task.service";
-import { TaskApiService } from "../services/tasks/task-api.service";
-import {TaskEffects} from "../../../../store/board-page/task/task.effects";
+import { TaskListEffects } from "../../../store/board-page/task-list/task-list.effects";
+import { TaskService } from "./services/tasks/task.service";
+import { TaskApiService } from "./services/tasks/task-api.service";
+import {TaskEffects} from "../../../store/board-page/task/task.effects";
 
 const routes: Routes = [
     {
@@ -24,7 +24,7 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         BoardPageComponent,
-        TaskListComponent,
+        TasksColumnComponent,
         TaskCardComponent,
     ],
     imports: [

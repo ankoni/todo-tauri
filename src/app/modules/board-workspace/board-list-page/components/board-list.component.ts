@@ -3,10 +3,10 @@ import { BoardListService } from "../services/board-list.service";
 import { Observable } from "rxjs";
 import { Board, CreateBoardDialogData } from "../../../../models/board-workspace/board";
 import { NbDialogService } from "@nebular/theme";
-import { CreateBoardDialogComponent } from "../../dialogs/create-board-dialog/create-board-dialog.component";
+import { CreateBoardDialogComponent } from "./dialogs/create-board-dialog/create-board-dialog.component";
 
 @Component({
-  selector: 'app-boards-list',
+  selector: 'app-board-list-page',
   templateUrl: './board-list.component.html',
   styleUrls: ['./board-list.component.scss']
 })

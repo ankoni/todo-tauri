@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {map, Observable} from "rxjs";
 import {Task} from "../../../../../models/board-workspace/task";
 import {Apollo} from "apollo-angular";
-import {CREATE_TASK, ICREATE_TASK} from "../../../../../gql/task/create-task";
-import {DELETE_TASK, IDELETE_TASK} from "../../../../../gql/task/delete-task";
-import {GET_ALL_TASKS, IGET_ALL_TASKS} from "../../../../../gql/task/get-all-tasks";
-import {EDIT_TASK, IEDIT_TASK} from "../../../../../gql/task/edit-task";
+import {CREATE_TASK, ICREATE_TASK} from "../../gql/task/create-task";
+import {DELETE_TASK, IDELETE_TASK} from "../../gql/task/delete-task";
+import {GET_ALL_TASKS, IGET_ALL_TASKS} from "../../gql/task/get-all-tasks";
+import {EDIT_TASK, IEDIT_TASK} from "../../gql/task/edit-task";
 
 @Injectable()
 export class TaskApiService {

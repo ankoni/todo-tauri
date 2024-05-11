@@ -1,4 +1,4 @@
-import {Task} from "../../models/board-workspace/task";
+import {Task} from "../../../../../models/board-workspace/task";
 import {gql} from "apollo-angular";
 
 export interface IEDIT_TASK {
