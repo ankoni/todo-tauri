@@ -9,7 +9,7 @@
             <button nbButton outline status="primary" (click)="addNewTaskList()">Add task list</button>
         </h1>
         <div *ngFor="let list of taskLists$ | async">
-            <app-task-list [taskListId]="list.id"></app-task-list>
+            <app-tasks-column [taskListId]="list.id"></app-tasks-column>
         </div>
     </nb-layout-column>
 
