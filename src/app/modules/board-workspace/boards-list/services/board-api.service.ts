@@ -4,8 +4,7 @@ import { Board, CreateBoardDialogData } from "../../../../models/board-workspace
 import { Apollo } from "apollo-angular";
 import { GET_ALL_BOARDS, IGET_ALL_BOARDS } from "../../../../gql/board/get-all-boards";
 import { CREATE_BOARD, ICREATE_BOARD } from "../../../../gql/board/create-board";
-import {IREMOVE_BOARD, REMOVE_BOARD} from "../../../../gql/board/remove-board";
-import { query } from "@angular/animations";
+import { IREMOVE_BOARD, REMOVE_BOARD } from "../../../../gql/board/remove-board";
 
 @Injectable({
   providedIn: 'root'

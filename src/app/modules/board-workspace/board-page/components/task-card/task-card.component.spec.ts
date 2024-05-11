@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TaskCardComponent } from './task-card.component';
-import {TaskService} from "../../services/task.service";
+import {TaskService} from "../../services/tasks/task.service";
 import { provideMockStore } from "@ngrx/store/testing";
 import { TaskList } from "../../../../../models/board-workspace/task-list";
 import { NbCardModule, NbThemeModule } from "@nebular/theme";

@@ -6,7 +6,7 @@ import { NbDialogService } from "@nebular/theme";
 import { CreateBoardDialogComponent } from "../../dialogs/create-board-dialog/create-board-dialog.component";
 
 @Component({
-  selector: 'app-board-list',
+  selector: 'app-boards-list',
   templateUrl: './board-list.component.html',
   styleUrls: ['./board-list.component.scss']
 })

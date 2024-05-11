@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router'
-import {TaskService} from "../services/task.service";
+import {TaskService} from "../services/tasks/task.service";
 import {Subject, takeUntil} from "rxjs";
 import {NbDialogService} from "@nebular/theme";
 import {CreateTaskListDialogComponent} from "../../dialogs/create-task-list-dialog/create-task-list-dialog.component";

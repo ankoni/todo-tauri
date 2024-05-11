@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {TaskService} from "../../services/task.service";
+import {TaskService} from "../../services/tasks/task.service";
 import {BehaviorSubject, filter, Subject, takeUntil} from "rxjs";
 import {TaskList} from "../../../../../models/board-workspace/task-list";
 import {FormControl, FormGroup, Validators} from "@angular/forms";

@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
-import { TaskList } from "../../../../models/board-workspace/task-list";
+import { TaskList } from "../../../../../models/board-workspace/task-list";
 import { Store } from "@ngrx/store";
 import {distinctUntilChanged, map, Observable} from "rxjs";
 import {
     CreateTaskList, DeleteTaskList,
     EditTaskListData, GetOneTaskList,
     LoadTaskLists,
-} from "../../../../store/board-page/task-list/task-list.actions";
-import { Task } from "../../../../models/board-workspace/task";
-import { getTaskLists } from "../../../../store/board-page/task-list/task-list.selectors";
+} from "../../../../../store/board-page/task-list/task-list.actions";
+import { Task } from "../../../../../models/board-workspace/task";
+import { getTaskLists } from "../../../../../store/board-page/task-list/task-list.selectors";
 import {
     AddNewTaskInList,
     CreateTask,
     DeleteTaskAction,
     EditTaskInfoAction, GetAllTasksInList
-} from "../../../../store/board-page/task/task.actions";
+} from "../../../../../store/board-page/task/task.actions";
 
 /** Сервис для работы со списками задач и задачами */
 @Injectable()

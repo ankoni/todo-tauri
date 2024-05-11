@@ -10,8 +10,8 @@ import { taskListReducer } from "../../../../store/board-page/task-list/task-lis
 import { ReactiveFormsModule } from "@angular/forms";
 import { EffectsModule } from "@ngrx/effects";
 import { TaskListEffects } from "../../../../store/board-page/task-list/task-list.effects";
-import { TaskService } from "../services/task.service";
-import { TaskApiService } from "../services/api/task-api.service";
+import { TaskService } from "../services/tasks/task.service";
+import { TaskApiService } from "../services/tasks/task-api.service";
 import {TaskEffects} from "../../../../store/board-page/task/task.effects";
 
 const routes: Routes = [
