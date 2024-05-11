@@ -1,4 +1,6 @@
-<nb-card *ngIf="(listData$ | async) as listData" [formGroup]="taskListForm">
+<nb-card *ngIf="(listData$ | async) as listData"
+         class="task-column"
+         [formGroup]="taskListForm">
     <nb-card-header class="jc-space-between">
         <ng-container
                 [ngTemplateOutlet]="editMode ? editModeTmpl : columnName"
