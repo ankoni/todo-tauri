@@ -52,7 +52,7 @@ describe('BoardApiService', () => {
         flush()
     }))
     it('test addNewBoard', fakeAsync(() => {
-        service.addNewBoard(testBoard.name).subscribe((board) => {
+        service.addNewBoard({ name: testBoard.name, description: testBoard.description }).subscribe((board) => {
             expect(board).toEqual(testBoard)
             expect(controller.expectOne(GET_ALL_BOARDS)).toBeDefined()
         })

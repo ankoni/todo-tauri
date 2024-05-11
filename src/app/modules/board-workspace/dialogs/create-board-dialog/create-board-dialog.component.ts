@@ -10,7 +10,8 @@ import { CreateBoardDialogData } from "../../../../models/board-workspace/board"
 })
 export class CreateBoardDialogComponent {
     form: FormGroup = new FormGroup({
-        name: new FormControl(null, Validators.required)
+        name: new FormControl(null, Validators.required),
+        description: new FormControl(null)
     });
 
     constructor(

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from "rxjs";
-import { Board } from "../../../../models/board-workspace/board";
+import { Board, CreateBoardDialogData } from "../../../../models/board-workspace/board";
 import { Apollo } from "apollo-angular";
 import { GET_ALL_BOARDS, IGET_ALL_BOARDS } from "../../../../gql/board/get-all-boards";
 import { CREATE_BOARD, ICREATE_BOARD } from "../../../../gql/board/create-board";
@@ -30,13 +30,13 @@ export class BoardApiService {
   }
 
   /** Добавление новой доски */
-  addNewBoard(name: string): Observable<Board | undefined> {
+  addNewBoard(data: CreateBoardDialogData): Observable<Board | undefined> {
     return this.apollo
         .mutate<ICREATE_BOARD>({
           mutation: CREATE_BOARD,
           variables: {
             createBoard: {
-              name
+              ...data
             }
           },
           refetchQueries: [{ query: GET_ALL_BOARDS} ],

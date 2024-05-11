@@ -10,6 +10,7 @@ export const GET_ALL_BOARDS = gql`
         getAllBoards {
             id
             name
+            description
         }
     }
 `

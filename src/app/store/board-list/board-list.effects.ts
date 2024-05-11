@@ -13,13 +13,15 @@ import {
 } from "./board-list.actions";
 import { filter, map, mergeMap, of, withLatestFrom } from "rxjs";
 import { dummyAction } from "../board-page/task-list/task-list.actions";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class BoardListEffects {
     constructor(
         private actions$: Actions,
         private store: Store<{ boardList: Board[] }>,
-        private boardApiService: BoardApiService
+        private boardApiService: BoardApiService,
+        private router: Router
     ) {
     }
 
@@ -47,12 +49,16 @@ export class BoardListEffects {
         this.actions$
             .pipe(
                 ofType(addNewBoard),
-                mergeMap(({ name }) => {
-                    return this.boardApiService.addNewBoard(name)
+                mergeMap(({ data }) => {
+                    return this.boardApiService.addNewBoard(data)
                         .pipe(
-                            map((data: Board | undefined) =>
-                                data ? new AddNewBoardSuccess(data) : dummyAction()
-                            )
+                            map((data: Board | undefined) => {
+                                if (data) {
+                                    this.router.navigate([`/boards/${data?.id}`])
+                                    return new AddNewBoardSuccess(data)
+                                }
+                                return dummyAction()
+                            })
                         )
                 })
             )

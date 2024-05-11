@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Board } from "../../../../models/board-workspace/board";
+import { Board, CreateBoardDialogData } from "../../../../models/board-workspace/board";
 import { Store } from "@ngrx/store";
 import { getBoardList } from "../../../../store/board-list/board-list.selectors";
 import { AddNewBoard, LoadBoardList, RemoveBoard } from "../../../../store/board-list/board-list.actions";
@@ -17,8 +17,8 @@ export class BoardListService {
         return this.store.select(getBoardList);
     }
 
-    addNewBoard(name: string): void {
-        this.store.dispatch(new AddNewBoard(name))
+    addNewBoard(data: CreateBoardDialogData): void {
+        this.store.dispatch(new AddNewBoard(data))
     }
 
     removeBoard(id: string): void {

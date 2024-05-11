@@ -29,7 +29,7 @@ export class BoardListComponent implements OnInit {
           if (!formData) {
             return;
           }
-          this.boardService.addNewBoard(formData.name);
+          this.boardService.addNewBoard(formData);
         })
   }
 }

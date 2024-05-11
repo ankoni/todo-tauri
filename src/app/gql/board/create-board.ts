@@ -10,6 +10,7 @@ export const CREATE_BOARD = gql`
         createBoard(createBoard: $createBoard) {
             id
             name
+            description
         }
     }
 `

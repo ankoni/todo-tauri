@@ -1,5 +1,5 @@
 import { Action, createAction, props } from "@ngrx/store";
-import { Board } from "../../models/board-workspace/board";
+import { Board, CreateBoardDialogData } from "../../models/board-workspace/board";
 
 /** Получение данных с бэка */
 const LOAD_BOARD_LIST = '[Board List] Load data';
@@ -24,12 +24,12 @@ export class LoadBoardListSuccess implements Action {
 const ADD_NEW_BOARD = '[Board List] Add new';
 const ADD_NEW_BOARD_SUCCESS = '[Board List] Board added success';
 
-export const addNewBoard = createAction(ADD_NEW_BOARD, props<{ name: string }>());
+export const addNewBoard = createAction(ADD_NEW_BOARD, props<{ data: CreateBoardDialogData }>());
 export const addNewBoardSuccess = createAction(ADD_NEW_BOARD_SUCCESS, props<{ board: Board }>());
 
 export class AddNewBoard implements Action {
     type = ADD_NEW_BOARD;
-    constructor(public name: string) {
+    constructor(public data: CreateBoardDialogData) {
     }
 }
 
