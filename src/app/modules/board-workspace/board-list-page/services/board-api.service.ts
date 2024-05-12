@@ -5,6 +5,7 @@ import { Apollo } from "apollo-angular";
 import { GET_ALL_BOARDS, IGET_ALL_BOARDS } from "../gql/board/get-all-boards";
 import { CREATE_BOARD, ICREATE_BOARD } from "../gql/board/create-board";
 import { IREMOVE_BOARD, REMOVE_BOARD } from "../gql/board/remove-board";
+import { GET_ONE_BOARD, IGET_ONE_BOARD } from "../gql/board/get-one-board";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,19 @@ export class BoardApiService {
             })
         )
   }
+
+
+    /** Запрос на получение доски с инфой о задачах */
+    getBoardInfoById(boardId: string): Observable<Board | null> {
+        return this.apollo
+            .query<IGET_ONE_BOARD>({query: GET_ONE_BOARD, variables: { id: boardId }})
+            .pipe(
+                map(({data}) => data.getOneBoard),
+                catchError(() => {
+                    return of(null)
+                })
+            )
+    }
 
   /** Добавление новой доски */
   addNewBoard(data: CreateBoardDialogData): Observable<Board | undefined> {

@@ -1,10 +1,12 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router'
-import {TaskService} from "../services/tasks/task.service";
-import {Subject, takeUntil} from "rxjs";
-import {NbDialogService} from "@nebular/theme";
-import {CreateTaskListDialogComponent} from "./dialogs/create-task-list-dialog/create-task-list-dialog.component";
-import {CreateTaskListDialogData, TaskList} from "../../../../models/board-workspace/task-list";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
+import { TaskService } from "../services/tasks/task.service";
+import { BehaviorSubject, Subject, takeUntil } from "rxjs";
+import { NbDialogService } from "@nebular/theme";
+import { CreateTaskListDialogComponent } from "./dialogs/create-task-list-dialog/create-task-list-dialog.component";
+import { CreateTaskListDialogData, TaskList } from "../../../../models/board-workspace/task-list";
+import { BoardService } from "../../board-list-page/services/board.service";
+import { Board } from "../../../../models/board-workspace/board";
 
 @Component({
     selector: 'app-board-page',
@@ -16,10 +18,12 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     private destroyed$: Subject<void> = new Subject<void>();
     private readonly boardId: string = '';
 
+    boardInfo$: BehaviorSubject<Board | null> = new BehaviorSubject<Board | null>(null);
     taskLists$: Subject<TaskList[]> = new Subject<TaskList[]>();
 
     constructor(
         private taskService: TaskService,
+        private boardService: BoardService,
         private route: ActivatedRoute,
         private dialogService: NbDialogService,
     ) {
@@ -27,10 +31,13 @@ export class BoardPageComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.taskService.getAllTaskList(this.boardId)
+        this.boardService.getOneBoard(this.boardId)
             .pipe(takeUntil(this.destroyed$))
-            .subscribe((lists) => {
-                this.taskLists$.next(lists);
+            .subscribe((board: Board) => {
+                this.boardInfo$.next(board)
+                if (board.taskLists) {
+                    this.taskLists$.next(board.taskLists)
+                }
             })
     }
 

@@ -3,7 +3,7 @@ import { Board } from "../../../../../models/board-workspace/board";
 import { Subject, takeUntil } from "rxjs";
 import {NbContextMenuDirective, NbMenuItem, NbMenuService} from "@nebular/theme";
 import { Router } from "@angular/router";
-import {BoardListService} from "../../services/board-list.service";
+import {BoardService} from "../../services/board.service";
 
 @Component({
     selector: 'app-board-card',
@@ -25,7 +25,7 @@ export class BoardCardComponent implements OnInit, OnDestroy {
     constructor(
         private nbMenuService: NbMenuService,
         private router: Router,
-        private boardListService: BoardListService,
+        private boardListService: BoardService,
     ) {
     }
 

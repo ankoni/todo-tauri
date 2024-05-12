@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Apollo} from "apollo-angular";
-import {catchError, map, Observable, of, take, tap} from "rxjs";
-import {TaskList} from "../../../../../models/board-workspace/task-list";
-import {GET_ONE_TASK_LIST, IGET_ONE_TASK_LIST} from "../../gql/task-list/get-one-task-list";
-import {GET_ALL_TASK_LIST, IGET_ALL_TASK_LIST} from "../../gql/task-list/get-all-task-list";
-import {CREATE_TASK_LIST, ICREATE_TASK_LIST} from "../../gql/task-list/create-task-list";
-import {DELETE_TASK_LIST, IDELETE_TASK_LIST} from "../../gql/task-list/delete-task-list";
+import { Injectable } from '@angular/core';
+import { Apollo } from "apollo-angular";
+import { catchError, map, Observable, of } from "rxjs";
+import { TaskList } from "../../../../../models/board-workspace/task-list";
+import { GET_ONE_TASK_LIST, IGET_ONE_TASK_LIST } from "../../gql/task-list/get-one-task-list";
+import { CREATE_TASK_LIST, ICREATE_TASK_LIST } from "../../gql/task-list/create-task-list";
+import { DELETE_TASK_LIST, IDELETE_TASK_LIST } from "../../gql/task-list/delete-task-list";
 import { EDIT_TASK_LIST, IEDIT_TASK_LIST } from "../../gql/task-list/edit-task-list";
+import { GET_ALL_TASK_LIST, IGET_ALL_TASK_LIST } from "../../gql/task-list/get-all-task-list";
 
 @Injectable({
     providedIn: 'root'

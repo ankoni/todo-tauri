@@ -5,14 +5,14 @@ import { Store } from "@ngrx/store";
 import { BoardApiService } from "../../modules/board-workspace/board-list-page/services/board-api.service";
 import {
     addNewBoard,
-    AddNewBoardSuccess,
+    AddNewBoardSuccess, getOneBoard, GetOneBoardSuccess,
     loadBoardList,
     LoadBoardListSuccess,
     removeBoard,
     RemoveBoardSuccess
 } from "./board-list.actions";
 import { filter, map, mergeMap, of, withLatestFrom } from "rxjs";
-import { dummyAction } from "../board-page/task-list/task-list.actions";
+import { dummyAction, LoadTaskListsSuccess } from "../board-page/task-list/task-list.actions";
 import { Router } from "@angular/router";
 
 @Injectable()
@@ -58,6 +58,24 @@ export class BoardListEffects {
                                     return new AddNewBoardSuccess(data)
                                 }
                                 return dummyAction()
+                            })
+                        )
+                })
+            )
+    )
+
+    getOneBoard$ = createEffect(() =>
+        this.actions$
+            .pipe(
+                ofType(getOneBoard),
+                mergeMap(({ id }) => {
+                    return this.boardApiService.getBoardInfoById(id)
+                        .pipe(
+                            map((board: Board | null) => {
+                                if (board?.taskLists) {
+                                    this.store.dispatch(new LoadTaskListsSuccess(board.taskLists ?? []))
+                                }
+                                return board ? new GetOneBoardSuccess(board) : dummyAction()
                             })
                         )
                 })

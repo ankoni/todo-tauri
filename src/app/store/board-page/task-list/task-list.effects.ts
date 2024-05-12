@@ -12,6 +12,7 @@ import { TaskList } from "../../../models/board-workspace/task-list";
 import { TaskApiService } from "../../../modules/board-workspace/board-page/services/tasks/task-api.service";
 import {CreateTaskSuccess, deleteTaskFromList, DeleteTaskSuccess, saveTask} from "../task/task.actions";
 import {TasksColumnService} from "../../../modules/board-workspace/board-page/services/task-column/tasks-column.service";
+import { Board } from "../../../models/board-workspace/board";
 
 @Injectable()
 export class TaskListEffects {
@@ -32,7 +33,6 @@ export class TaskListEffects {
                     if (!lists.length) {
                         return this.taskListService.loadAllTaskListData(action.boardId)
                             .pipe(
-                                tap(() => console.log('GET TASKS DATA')),
                                 map((data: TaskList[]) =>
                                     new LoadTaskListsSuccess(data)
                                 )

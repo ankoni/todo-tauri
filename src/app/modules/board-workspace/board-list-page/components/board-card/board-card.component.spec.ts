@@ -7,7 +7,7 @@ import {
     NbIconModule,
     NbMenuService, NbThemeModule
 } from "@nebular/theme";
-import { BoardListService } from "../../services/board-list.service";
+import { BoardService } from "../../services/board.service";
 import { Board } from "../../../../../models/board-workspace/board";
 import { provideMockStore } from "@ngrx/store/testing";
 import { NbEvaIconsModule } from "@nebular/eva-icons";
@@ -27,7 +27,7 @@ describe('BoardCardComponent', () => {
                 NbContextMenuModule
             ],
             providers: [
-                BoardListService,
+                BoardService,
                 provideMockStore({ initialState }),
                 NbMenuService,
             ],

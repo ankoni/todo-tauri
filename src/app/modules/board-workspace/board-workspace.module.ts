@@ -6,7 +6,7 @@ import { StoreModule } from "@ngrx/store";
 import { boardListReducer } from "../../store/board-list/board-list.reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { BoardListEffects } from "../../store/board-list/board-list.effects";
-import { BoardListService } from "./board-list-page/services/board-list.service";
+import { BoardService } from "./board-list-page/services/board.service";
 import { BoardApiService } from "./board-list-page/services/board-api.service";
 import {
     NbButtonModule,
@@ -56,7 +56,7 @@ const routes: Routes = [
         NbContextMenuModule,
     ],
     providers: [
-        BoardListService,
+        BoardService,
         BoardApiService,
         NbMenuService
     ]

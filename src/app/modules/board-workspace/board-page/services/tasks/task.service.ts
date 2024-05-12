@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TaskList } from "../../../../../models/board-workspace/task-list";
 import { Store } from "@ngrx/store";
-import {distinctUntilChanged, map, Observable} from "rxjs";
+import { distinctUntilChanged, forkJoin, map, Observable } from "rxjs";
 import {
     CreateTaskList, DeleteTaskList,
     EditTaskListData, GetOneTaskList,

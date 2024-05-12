@@ -1,12 +1,12 @@
 import { fakeAsync, flush, TestBed } from '@angular/core/testing';
 
-import { BoardListService } from "./board-list.service";
+import { BoardService } from "./board.service";
 import { Board } from "../../../../models/board-workspace/board";
 import { MockStore, provideMockStore } from "@ngrx/store/testing";
 import { getBoardList } from "../../../../store/board-list/board-list.selectors";
 
 describe('BoardListService', () => {
-    let service: BoardListService;
+    let service: BoardService;
     let store: MockStore
     const initialState: Board[] = [ { id: '1', name: 'test' }]
 
@@ -14,7 +14,7 @@ describe('BoardListService', () => {
         TestBed.configureTestingModule({
             imports: [],
             providers: [
-                BoardListService,
+                BoardService,
                 provideMockStore({
                     initialState,
                     selectors: [
@@ -27,7 +27,7 @@ describe('BoardListService', () => {
             ]
         });
         store = TestBed.inject(MockStore)
-        service = TestBed.inject(BoardListService);
+        service = TestBed.inject(BoardService);
     });
 
     afterEach(() => {

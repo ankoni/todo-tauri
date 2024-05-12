@@ -20,9 +20,26 @@ export class LoadBoardListSuccess implements Action {
     }
 }
 
+/** Информация о доске */
+const GET_ONE_BOARD = '[Board] Get one board info';
+const GET_ONE_BOARD_SUCCESS = '[Board] Get one board info success';
+export const getOneBoard = createAction(GET_ONE_BOARD, props<{id: string}>())
+export const getOneBoardSuccess = createAction(GET_ONE_BOARD_SUCCESS, props<{board: Board}>())
+
+export class GetOneBoard implements Action {
+    type = GET_ONE_BOARD
+    constructor(public id: string) {
+    }
+}
+export class GetOneBoardSuccess implements Action {
+    type = GET_ONE_BOARD_SUCCESS
+    constructor(public board: Board) {
+    }
+}
+
 /** Добавление доски */
-const ADD_NEW_BOARD = '[Board List] Add new';
-const ADD_NEW_BOARD_SUCCESS = '[Board List] Board added success';
+const ADD_NEW_BOARD = '[Board] Add new';
+const ADD_NEW_BOARD_SUCCESS = '[Board] Board added success';
 
 export const addNewBoard = createAction(ADD_NEW_BOARD, props<{ data: CreateBoardDialogData }>());
 export const addNewBoardSuccess = createAction(ADD_NEW_BOARD_SUCCESS, props<{ board: Board }>());

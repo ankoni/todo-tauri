@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardListService } from "../services/board-list.service";
+import { BoardService } from "../services/board.service";
 import { Observable } from "rxjs";
 import { Board, CreateBoardDialogData } from "../../../../models/board-workspace/board";
 import { NbDialogService } from "@nebular/theme";
@@ -14,7 +14,7 @@ export class BoardListComponent implements OnInit {
   boardList$: Observable<Board[]> = this.boardService.getAllBoards()
 
   constructor(
-      private boardService: BoardListService,
+      private boardService: BoardService,
       private dialogService: NbDialogService,
   ) {
   }
